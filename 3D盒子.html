@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            position: relative;
+            margin: 100px auto;
+            transition: all 2s linear;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .box ul li {
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            opacity: .5;
+            font-size: 500px;
+            text-align: center;
+            line-height: 500px;
+            color: #fff;
+            text-shadow: -1px -1px 0 rgba(255, 255, 255, 1), 1px 1px 2px rgba(0, 0, 0, .8), -3px 10px 31px rgba(0, -120, 0, .4);
+            border-radius: 50%;
+            border: 1px dashed #FFF;
+            -webkit-animation-timing-function: ease-in-out;
+            -webkit-animation-name: breathe;
+            -webkit-animation-duration: 2700ms;
+            -webkit-animation-iteration-count: infinite;
+            -webkit-animation-direction: alternate;
+        }
+
+        .box ul li:nth-child(1) {
+            transform: rotateY(0deg) translateZ(250px);
+            background: #069;
+            background: linear-gradient(45deg, skyblue, hotpink, purple, orange, yellow);
+        }
+
+        .box ul li:nth-child(2) {
+            transform: rotateY(180deg) translateZ(250px);
+            background: #4dc;
+            background: linear-gradient(45deg, skyblue, hotpink, purple, orange, yellow);
+        }
+
+        .box ul li:nth-child(3) {
+            transform: rotateY(90deg) translateZ(250px);
+            background: #dca;
+            background: linear-gradient(45deg, skyblue, hotpink, purple, orange, yellow);
+        }
+
+        .box ul li:nth-child(4) {
+            transform: rotateY(-90deg) translateZ(250px);
+            background: #fa5;
+            background: linear-gradient(45deg, skyblue, hotpink, purple, orange, yellow);
+        }
+
+        .box ul li:nth-child(5) {
+            transform: rotateX(90deg) translateZ(250px);
+            background: #000;
+            background: linear-gradient(45deg, skyblue, hotpink, purple, orange, yellow);
+        }
+
+        .box ul li:nth-child(6) {
+            transform: rotateX(-90deg) translateZ(250px);
+            background: #f00;
+            background: linear-gradient(45deg, skyblue, hotpink, purple, orange, yellow);
+        }
+
+        /*.box:hover{
+        transform: rotateY(415deg) rotateX(145deg) rotateZ(100deg);
+    }*/
+
+        @keyframes autoRotate {
+            /* 从状态1
+               如果是希望从元素的默认状态开始改变
+               from中内容可以不写
+               甚至可以省略
+             */
+            from {
+                transform: rotateY(-415deg) rotateX(-145deg) rotateZ(-100deg);
+            }
+            /* 到状态2 */
+            to {
+                transform: rotateY(415deg) rotateX(145deg) rotateZ(100deg);
+            }
+        }
+
+        /* 定义使用动画的属性 */
+        .animation {
+            /* 动画名字 */
+            animation-name: autoRotate;
+            /* 动画的持续时间 */
+            animation-duration: 15s;
+            /* 动画的 线型 */
+            animation-timing-function: linear;
+            /* 动画的次数
+                如果想要一直播放
+                也能给具体的次数
+            */
+            animation-iteration-count: infinite;
+
+            /* 延迟 开始动画 */
+            animation-delay: 1s;
+        }
+
+        @-webkit-keyframes breathe {
+            0% {
+                opacity: .2;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box animation">
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+    </ul>
+</div>
+</body>
+</html>
